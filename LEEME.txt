@@ -1,0 +1,51 @@
+MIS FINANZAS — App personal de gastos, ingresos, presupuesto y listas de compras
+================================================================================
+
+ARCHIVOS (todos van en la MISMA carpeta raíz, sin cambiar nombres)
+  index.html            Interfaz y estilos
+  app.js                Lógica de la app
+  db.js                 Base de datos local (IndexedDB) con fotos
+  sw.js                 Service Worker (funciona sin internet)
+  manifest.webmanifest  Datos de instalación (nombre, ícono, acceso directo)
+  xlsx.full.min.js      Librería SheetJS 0.18.5 para exportar Excel (offline)
+  icons/                Íconos de la app
+
+POR QUÉ HAY QUE PUBLICARLA
+  Android/iPhone solo instalan una app web (PWA) si se abre desde una dirección
+  HTTPS. Abrir index.html desde el explorador de archivos NO permite instalarla.
+  Solo se publica el "programa"; tus datos y fotos se guardan ÚNICAMENTE en tu
+  celular, nunca se suben a internet.
+
+OPCIÓN A — GitHub Pages (gratis, permanente; recomendada)
+  1. Crea cuenta en github.com → New repository → nombre: misfinanzas → Public.
+  2. "uploading an existing file" → arrastra TODO el contenido de esta carpeta
+     (incluida la carpeta icons) → Commit changes.
+  3. Settings → Pages → Branch: main / (root) → Save.
+  4. En 1–2 minutos queda en:  https://TU-USUARIO.github.io/misfinanzas/
+
+OPCIÓN B — Netlify Drop (más rápido)
+  1. Entra a app.netlify.com/drop e inicia sesión (gratis).
+  2. Arrastra la carpeta misfinanzas completa. Te da una URL https://…netlify.app
+
+INSTALAR EN EL CELULAR (acceso directo)
+  Android (Chrome): abre la URL → botón "Instalar app" en Inicio, o menú ⋮ →
+                    "Instalar app". Aparece el ícono "Finanzas" en tu pantalla.
+                    Mantén presionado el ícono → "Nuevo gasto" (atajo directo).
+  iPhone (Safari):  abre la URL → Compartir (□↑) → "Agregar a pantalla de inicio".
+
+USO
+  • Botón + : registra gasto o ingreso, con foto de boleta/factura (cámara o galería).
+  • Inicio  : saldo A FAVOR / EN CONTRA del presupuesto, proyección al cierre
+              del mes y cuánto puedes gastar por día.
+  • Compras : crea listas, marca ✔ lo comprado y escribe el precio real;
+              "Registrar como gasto" crea el gasto con la fecha (puedes adjuntar
+              la boleta). Cada lista se exporta a Excel.
+  • Ajustes : presupuesto mensual, categorías, exportar Excel (mes o todo),
+              copia de seguridad con fotos (.json) y restauración.
+
+RECOMENDACIÓN
+  Haz una copia de seguridad cada mes y guárdala en Drive: si borras los datos
+  del navegador o cambias de celular, con ella recuperas todo (incluidas fotos).
+
+ACTUALIZAR LA APP
+  Si modificas archivos, cambia VERSION en sw.js (p. ej. v1.0.1) y vuelve a subir.
